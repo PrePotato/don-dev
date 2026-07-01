@@ -4,15 +4,20 @@ import {
 } from 'framer-motion';
 import Reveal from './Reveal.jsx';
 import ScrambleText from './ScrambleText.jsx';
-import { LugePreview, DetailingPreview, EmergencyPreview } from './ProjectPreviews.jsx';
+import { LugePreview, ScrollPreview, DetailingPreview, EmergencyPreview } from './ProjectPreviews.jsx';
 
 const PROJECTS = [
   { id: 'luge', title: 'Lüge', type: 'Multiplayer Game', tag: 'Next.js · Socket.IO · Postgres',
     desc: 'A real-time multiplayer bluffing card game. Turn-based challenges with live game state synced across every player in the room.',
-    Preview: LugePreview, accent: '#ff5147', href: 'https://github.com/PrePotato/luge' },
+    Preview: LugePreview, accent: '#ff5147',
+    live: 'https://luge-pi.vercel.app', repo: 'https://github.com/PrePotato/luge' },
+  { id: 'scroll', title: 'Scroll Story', type: 'Interactive Web', tag: 'HTML · CSS · JS',
+    desc: 'A scroll-driven personal site where a full-page background video is the interface — scroll scrubs the video timeline, with a pinned hero, cross-fading chapters and a glass UI. Hand-coded, no framework.',
+    Preview: ScrollPreview, accent: '#ffb13d',
+    live: 'https://prepotato.github.io/don-dev-scroll/', repo: 'https://github.com/PrePotato/don-dev-scroll' },
   { id: 'detailing', title: 'Auto Detailing Manager', type: 'iOS · iPad', tag: 'SwiftUI · SwiftData · CloudKit',
     desc: 'A management app for a car-detailing business: scheduling, customers & vehicles, before/after photo coverage, on-screen-signed handover forms exported as branded PDFs, and emailable invoices — synced across iPhone & iPad via iCloud.',
-    Preview: DetailingPreview, accent: '#ff8a3d', href: 'https://github.com/PrePotato/AutoDetailManager' },
+    Preview: DetailingPreview, accent: '#ff8a3d', repo: 'https://github.com/PrePotato/AutoDetailManager' },
   { id: 'sentinel', title: 'Emergency Alerts', type: 'iOS App', tag: 'Swift · Firebase',
     desc: 'A native iOS app that broadcasts emergency push notifications to multiple devices at once, in real time, via Firebase Cloud Messaging.',
     Preview: EmergencyPreview, accent: '#ffd23f' },
@@ -65,14 +70,23 @@ function ProjectCard({ p, index }) {
             <span className="project__orb" />
           </motion.div>
           <motion.div className="project__glare" style={{ background: glare }} />
-          {p.href ? (
-            <a className="project__open" href={p.href} target="_blank" rel="noopener noreferrer"
-               data-hover onClick={(e) => e.stopPropagation()}>
-              View code<span>↗</span>
-            </a>
-          ) : (
-            <span className="project__open project__open--tag">{p.tag.split(' · ')[0]}</span>
-          )}
+          <div className="project__links">
+            {p.live && (
+              <a className="project__open" href={p.live} target="_blank" rel="noopener noreferrer"
+                 data-hover onClick={(e) => e.stopPropagation()}>
+                Live<span>↗</span>
+              </a>
+            )}
+            {p.repo && (
+              <a className="project__open" href={p.repo} target="_blank" rel="noopener noreferrer"
+                 data-hover onClick={(e) => e.stopPropagation()}>
+                Code<span>↗</span>
+              </a>
+            )}
+            {!p.live && !p.repo && (
+              <span className="project__open project__open--tag">{p.tag.split(' · ')[0]}</span>
+            )}
+          </div>
         </div>
         <div className="project__body">
           <div className="project__row">

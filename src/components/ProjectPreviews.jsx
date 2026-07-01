@@ -45,6 +45,49 @@ export function LugePreview() {
   );
 }
 
+/* ---- Scroll Story — scroll-driven video-hero site (web) ---- */
+export function ScrollPreview() {
+  return (
+    <svg viewBox="0 0 400 250" style={wrap} preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="250" fill="#140b06" />
+      <ellipse cx="200" cy="118" rx="185" ry="112" fill="var(--accent)" opacity=".12" />
+
+      {/* filmstrip motif */}
+      <g>
+        {[...Array(9)].map((_, i) => (
+          <rect key={i} x={12 + i * 44} y="20" width="36" height="22" rx="3" fill="#1d1207" stroke="#3a2a1a" />
+        ))}
+      </g>
+
+      {/* meta rail chips (mirrors the real site's sections) */}
+      <g fontFamily="JetBrains Mono, monospace" fontSize="8" fill="#c9b8aa">
+        <rect x="14" y="58" width="50" height="16" rx="8" fill="#1a1108" stroke="#3a2a1a" /><text x="23" y="69">Design</text>
+        <rect x="70" y="58" width="50" height="16" rx="8" fill="#1a1108" stroke="#3a2a1a" /><text x="79" y="69">Motion</text>
+        <rect x="126" y="58" width="64" height="16" rx="8" fill="#1a1108" stroke="#3a2a1a" /><text x="135" y="69">Front-end</text>
+      </g>
+
+      {/* pinned hero */}
+      <text x="200" y="126" textAnchor="middle" fontFamily="Sora" fontSize="34" fontWeight="800" fill="#fdf6ef">don.dev</text>
+      <text x="200" y="148" textAnchor="middle" fontFamily="Sora" fontSize="11" fill="var(--accent)">Scroll is the playhead.</text>
+
+      {/* scroll indicator */}
+      <circle cx="384" cy="108" r="2.5" fill="var(--accent)" />
+      <circle cx="384" cy="120" r="2.5" fill="#4a3626" />
+      <circle cx="384" cy="132" r="2.5" fill="#4a3626" />
+
+      {/* video scrubber / playhead */}
+      <text x="14" y="196" fontFamily="JetBrains Mono, monospace" fontSize="7" fill="#8a7560">00:12</text>
+      <text x="386" y="196" textAnchor="end" fontFamily="JetBrains Mono, monospace" fontSize="7" fill="#8a7560">00:30</text>
+      <rect x="14" y="204" width="372" height="4" rx="2" fill="#241509" />
+      <rect x="14" y="204" width="150" height="4" rx="2" fill="var(--accent)" />
+      <g fill="#3a2a1a">
+        {[...Array(13)].map((_, i) => (<rect key={i} x={14 + i * 30} y="214" width="1.5" height="6" />))}
+      </g>
+      <circle cx="164" cy="206" r="6" fill="var(--accent)" stroke="#140b06" strokeWidth="2" />
+    </svg>
+  );
+}
+
 /* ---- Auto Detailing Manager — iOS/iPad business app ---- */
 export function DetailingPreview() {
   return (
