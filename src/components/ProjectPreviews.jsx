@@ -45,6 +45,64 @@ export function LugePreview() {
   );
 }
 
+/* ---- Nova — AI voice receptionist (web) ---- */
+export function NovaPreview() {
+  return (
+    <svg viewBox="0 0 400 250" style={wrap} preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="250" fill="#140b06" />
+      <text x="22" y="34" fontFamily="Sora" fontSize="16" fontWeight="800" fill="#fdf6ef">NOVA</text>
+      <text x="22" y="46" fontFamily="JetBrains Mono, monospace" fontSize="6.5" letterSpacing="1" fill="#8a7560">AI VOICE RECEPTIONIST</text>
+
+      {/* voice orb */}
+      <circle cx="150" cy="126" r="56" fill="var(--accent)" opacity=".12">
+        <animate attributeName="r" values="48;60;48" dur="3s" repeatCount="indefinite" />
+      </circle>
+      {[46, 36, 26].map((r, i) => (
+        <circle key={i} cx="150" cy="126" r={r} fill="none" stroke="var(--accent)" strokeWidth="1.4" strokeOpacity={0.5 - i * 0.12}>
+          <animate attributeName="r" values={`${r};${r + 4};${r}`} dur={`${2.5 + i * 0.5}s`} repeatCount="indefinite" />
+        </circle>
+      ))}
+      <circle cx="150" cy="126" r="17" fill="url(#novaOrb)">
+        <animate attributeName="opacity" values=".8;1;.8" dur="2s" repeatCount="indefinite" />
+      </circle>
+
+      {/* waveform */}
+      <g fill="var(--accent)">
+        {[10, 18, 26, 20, 30, 22, 14, 24, 12].map((h, i) => (
+          <rect key={i} x={112 + i * 9} y={196 - h / 2} width="4" height={h} rx="2">
+            <animate attributeName="height" values={`${h};${h * 0.4};${h}`} dur={`${0.8 + i * 0.12}s`} repeatCount="indefinite" />
+            <animate attributeName="y" values={`${196 - h / 2};${196 - h * 0.2};${196 - h / 2}`} dur={`${0.8 + i * 0.12}s`} repeatCount="indefinite" />
+          </rect>
+        ))}
+      </g>
+
+      {/* status */}
+      <rect x="112" y="212" width="78" height="16" rx="8" fill="#1a1108" stroke="var(--accent)" strokeOpacity=".4" />
+      <circle cx="122" cy="220" r="3" fill="var(--accent)"><animate attributeName="opacity" values="1;.3;1" dur="1.4s" repeatCount="indefinite" /></circle>
+      <text x="130" y="223" fontFamily="JetBrains Mono, monospace" fontSize="7" fill="#c9b8aa">Listening…</text>
+
+      {/* document generation */}
+      <rect x="286" y="70" width="96" height="120" rx="10" fill="#1a1108" stroke="#3a2a1a" />
+      <rect x="298" y="84" width="13" height="16" rx="2" fill="#241509" stroke="var(--accent)" strokeOpacity=".5" />
+      <text x="318" y="96" fontFamily="Sora" fontSize="7.5" fill="#fdf6ef">Summary.pdf</text>
+      <g fill="#3a2a1a">
+        <rect x="298" y="114" width="72" height="4" rx="2" /><rect x="298" y="124" width="72" height="4" rx="2" /><rect x="298" y="134" width="54" height="4" rx="2" />
+      </g>
+      <rect x="298" y="114" width="30" height="4" rx="2" fill="var(--accent)">
+        <animate attributeName="width" values="8;72;8" dur="3s" repeatCount="indefinite" />
+      </rect>
+      <text x="298" y="162" fontFamily="JetBrains Mono, monospace" fontSize="6.5" fill="var(--accent)">generating…</text>
+      <rect x="298" y="170" width="72" height="10" rx="5" fill="var(--accent)" fillOpacity=".18" />
+
+      <defs>
+        <radialGradient id="novaOrb" cx="40%" cy="35%">
+          <stop offset="0" stopColor="#fff7f0" /><stop offset="55%" stopColor="var(--accent)" /><stop offset="100%" stopColor="#7a2f18" />
+        </radialGradient>
+      </defs>
+    </svg>
+  );
+}
+
 /* ---- Scroll Story — scroll-driven video-hero site (web) ---- */
 export function ScrollPreview() {
   return (

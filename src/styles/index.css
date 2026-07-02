@@ -207,7 +207,7 @@ body::before{
 .about__fact-v{font-family:var(--font-display);font-weight:600;font-size:1.02rem}
 
 /* ---------- Projects ---------- */
-.projects__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;perspective:1400px}
+.projects__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;perspective:1400px}
 .project-cell{transform-style:preserve-3d}
 .project{
   position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--border);
