@@ -27,9 +27,9 @@ export default function Loader({ onDone }) {
       {!gone && (
         <motion.div
           className="loader"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, filter: 'blur(12px)' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ y: 0 }}
+          exit={{ y: '-100%' }}
+          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >
           <div className="loader__inner">
             <div className="loader__tag">INITIALIZING&nbsp;WORKSPACE</div>
