@@ -262,11 +262,11 @@ body::before{
 .orbit__item{position:absolute;top:0;left:0;transform:rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a)))}
 .orbit__counter{position:absolute;top:0;left:0;animation:spin360 var(--d) linear infinite}
 .chip{position:absolute;top:0;left:0;transform:translate(-50%,-50%);white-space:nowrap;
-  display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:30px;font-size:.84rem;font-weight:500;
+  display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:30px;font-size:.72rem;font-weight:500;
   background:rgba(20,12,7,.8);border:1px solid var(--border-strong);backdrop-filter:blur(6px);
   box-shadow:0 8px 24px -12px rgba(0,0,0,.9);transition:transform .25s var(--ease),border-color .25s}
 .chip:hover{border-color:rgba(255,255,255,.4)}
-.chip__dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.chip__dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 @keyframes spin360{to{transform:rotate(360deg)}}
 .skills__clusters{display:grid;gap:18px}
 .cluster{padding:24px;border-radius:18px;border:1px solid var(--border);background:var(--glass)}
@@ -334,8 +334,10 @@ body::before{
   .nav__burger{display:flex}
   .nav__links{position:fixed;inset:0 0 0 auto;width:min(320px,82vw);flex-direction:column;justify-content:center;
     gap:30px;padding:40px;background:rgba(16,9,5,.97);backdrop-filter:blur(20px);border-left:1px solid var(--border);
-    transform:translateX(100%);transition:transform .45s var(--ease)}
-  .nav__links.is-open{transform:none}
+    transform:translateX(100%);opacity:0;visibility:hidden;
+    transition:transform .45s var(--ease),opacity .3s var(--ease),visibility 0s linear .45s}
+  .nav__links.is-open{transform:none;opacity:1;visibility:visible;
+    transition:transform .45s var(--ease),opacity .3s var(--ease),visibility 0s}
   .nav__links a{font-size:1.15rem}
   .projects__grid{grid-template-columns:1fr}
   .build__row{grid-template-columns:auto 1fr;gap:6px 16px}

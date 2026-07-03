@@ -4,7 +4,7 @@ import {
 } from 'framer-motion';
 import Reveal from './Reveal.jsx';
 import ScrambleText from './ScrambleText.jsx';
-import { LugePreview, NovaPreview, ScrollPreview, DetailingPreview, EmergencyPreview } from './ProjectPreviews.jsx';
+import { LugePreview, NovaPreview, SentinelPreview, ScrollPreview, DetailingPreview, EmergencyPreview } from './ProjectPreviews.jsx';
 
 const PROJECTS = [
   { id: 'luge', title: 'Lüge', type: 'Multiplayer Game', tag: 'Next.js · Socket.IO · Postgres',
@@ -15,6 +15,10 @@ const PROJECTS = [
     desc: 'An AI voice receptionist that greets and talks with callers using neural text-to-speech, visualizes speech with a live WebGL orb, and generates documents right in the browser.',
     Preview: NovaPreview, accent: '#ff7043',
     live: 'https://nova-ai-receptionist.onrender.com' },
+  { id: 'soc', title: 'Sentinel SOC', type: 'AI SecOps Dashboard', tag: 'React · FastAPI · WebSocket',
+    desc: 'A real-time Security Operations Center dashboard: a live NVD vulnerability feed, a Claude-powered AI analyst, threat maps, charts and one-click PDF reports — React + FastAPI over WebSockets, backed by Postgres, Redis and Docker.',
+    Preview: SentinelPreview, accent: '#ff9d2e',
+    live: 'https://sentinel-soc-hazel.vercel.app/', repo: 'https://github.com/PrePotato/sentinel-soc' },
   { id: 'scroll', title: 'Scroll Story', type: 'Interactive Web', tag: 'HTML · CSS · JS',
     desc: 'A scroll-driven personal site where a full-page background video is the interface — scroll scrubs the video timeline, with a pinned hero, cross-fading chapters and a glass UI. Hand-coded, no framework.',
     Preview: ScrollPreview, accent: '#ffb13d',

@@ -4,21 +4,21 @@ import ScrambleText from './ScrambleText.jsx';
 
 const INNER = [
   { label: 'React', c: '#ffd23f' },
-  { label: 'JavaScript', c: '#ff8a3d' },
+  { label: 'JS', c: '#ff8a3d' },
   { label: 'Three.js', c: '#ff5147' },
   { label: 'Python', c: '#ffb13d' },
   { label: 'Swift', c: '#ffd23f' },
   { label: 'GLSL', c: '#ff8a3d' },
 ];
 const OUTER = [
-  { label: 'TypeScript', c: '#ff5147' },
+  { label: 'TS', c: '#ff5147' },
   { label: 'Node.js', c: '#ffb13d' },
   { label: 'GSAP', c: '#ffd23f' },
   { label: 'Blender', c: '#ff8a3d' },
   { label: 'Figma', c: '#ff5147' },
   { label: 'C++', c: '#ffb13d' },
   { label: 'WebGL', c: '#ffd23f' },
-  { label: 'Virtual Machines', c: '#ff8a3d' },
+  { label: 'VMs', c: '#ff8a3d' },
 ];
 
 const CLUSTERS = [
@@ -83,7 +83,7 @@ export default function Skills() {
             <div className="skills__core">
               <span>&lt;/&gt;</span>
             </div>
-            <Ring items={INNER} radius={120} duration={26} />
+            <Ring items={INNER} radius={108} duration={26} />
             <Ring items={OUTER} radius={205} duration={40} reverse />
           </div>
         </div>

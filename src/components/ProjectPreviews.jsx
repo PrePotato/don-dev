@@ -45,6 +45,59 @@ export function LugePreview() {
   );
 }
 
+/* ---- Sentinel SOC — AI security operations dashboard (web) ---- */
+export function SentinelPreview() {
+  return (
+    <svg viewBox="0 0 400 250" style={wrap} preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="250" fill="#0f0a05" />
+      {/* sidebar */}
+      <rect x="0" y="0" width="38" height="250" fill="#160d07" />
+      <rect x="11" y="14" width="16" height="16" rx="5" fill="var(--accent)" />
+      {[46, 64, 82, 100].map((y, i) => (
+        <rect key={i} x="13" y={y} width="12" height="4" rx="2" fill={i === 0 ? 'var(--accent)' : '#3a2a1a'} />
+      ))}
+
+      {/* header */}
+      <text x="50" y="22" fontFamily="Sora" fontSize="12.5" fontWeight="800" fill="#fdf6ef">SENTINEL SOC</text>
+      <text x="50" y="32" fontFamily="JetBrains Mono, monospace" fontSize="6" letterSpacing=".5" fill="var(--accent)">AI-POWERED SECOPS</text>
+      <circle cx="356" cy="20" r="3" fill="#ffb13d"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite" /></circle>
+      <text x="382" y="23" textAnchor="end" fontFamily="JetBrains Mono, monospace" fontSize="6.5" fill="#8a7560">LIVE</text>
+
+      {/* stat cards */}
+      <rect x="50" y="42" width="104" height="44" rx="9" fill="#160d07" stroke="#241509" />
+      <text x="60" y="59" fontFamily="Inter, sans-serif" fontSize="7" fill="#8a7560">Threats blocked</text>
+      <text x="60" y="77" fontFamily="Sora" fontSize="14" fontWeight="700" fill="var(--accent)">12,480</text>
+      <rect x="162" y="42" width="104" height="44" rx="9" fill="#160d07" stroke="#241509" />
+      <text x="172" y="59" fontFamily="Inter, sans-serif" fontSize="7" fill="#8a7560">Active alerts</text>
+      <text x="172" y="77" fontFamily="Sora" fontSize="14" fontWeight="700" fill="#ff5147">7</text>
+      <rect x="274" y="42" width="108" height="44" rx="9" fill="#160d07" stroke="#241509" />
+      <text x="284" y="59" fontFamily="Inter, sans-serif" fontSize="7" fill="#8a7560">Risk score</text>
+      <text x="284" y="77" fontFamily="Sora" fontSize="14" fontWeight="700" fill="#ffd23f">34 / 100</text>
+
+      {/* threat chart */}
+      <rect x="50" y="94" width="198" height="140" rx="10" fill="#160d07" stroke="#241509" />
+      <text x="60" y="110" fontFamily="Inter, sans-serif" fontSize="7.5" fill="#c9b8aa">Threat activity · 24h</text>
+      <polygon points="60,204 82,188 104,194 126,166 148,176 170,146 192,158 214,128 236,140 236,224 60,224" fill="var(--accent)" opacity=".12" />
+      <polyline points="60,204 82,188 104,194 126,166 148,176 170,146 192,158 214,128 236,140" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <animate attributeName="stroke-dasharray" values="0 480;480 0" dur="2.6s" repeatCount="indefinite" />
+      </polyline>
+
+      {/* alert feed */}
+      <rect x="256" y="94" width="126" height="140" rx="10" fill="#160d07" stroke="#241509" />
+      <text x="266" y="110" fontFamily="Inter, sans-serif" fontSize="7.5" fill="#c9b8aa">Live alerts</text>
+      <g fontFamily="JetBrains Mono, monospace" fontSize="6.5">
+        {[['CRITICAL', '#ff5147', 'Brute-force'], ['HIGH', '#ff8a3d', 'Port scan'], ['MEDIUM', '#ffd23f', 'DNS anomaly'], ['HIGH', '#ff8a3d', 'Exfil attempt']].map((a, i) => (
+          <g key={i} transform={`translate(266 ${120 + i * 27})`}>
+            <circle cx="4" cy="7" r="3" fill={a[1]} />
+            <text x="12" y="5" fill={a[1]}>{a[0]}</text>
+            <text x="12" y="15" fill="#8a7560">{a[2]}</text>
+          </g>
+        ))}
+      </g>
+    </svg>
+  );
+}
+
 /* ---- Nova — AI voice receptionist (web) ---- */
 export function NovaPreview() {
   return (
