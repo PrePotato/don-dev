@@ -27,7 +27,7 @@ export default function Loader({ onDone }) {
       {!gone && (
         <motion.div
           className="loader"
-          initial={{ y: 0 }}
+          initial={{ y: '0%' }}
           exit={{ y: '-100%' }}
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >

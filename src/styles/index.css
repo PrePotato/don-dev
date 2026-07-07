@@ -167,22 +167,25 @@ body::before{
 .hero__inner{max-width:880px}
 .hero__status{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);
   padding:9px 18px;border-radius:30px;border:1px solid var(--border);background:var(--glass);
-  backdrop-filter:blur(8px);margin-bottom:30px}
+  backdrop-filter:blur(8px);margin-bottom:22px}
 .hero__status-dot{width:8px;height:8px;border-radius:50%;background:#ffb13d;box-shadow:0 0 0 0 rgba(255,177,61,.6);animation:ping 2.4s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,177,61,.5)}70%{box-shadow:0 0 0 9px rgba(255,177,61,0)}100%{box-shadow:0 0 0 0 rgba(255,177,61,0)}}
-.hero__kicker{font-family:var(--font-mono);font-size:.85rem;letter-spacing:.18em;color:var(--yellow);text-transform:uppercase;margin-bottom:18px}
-.hero__title{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;line-height:.98;
-  font-size:clamp(2.8rem,9vw,7rem)}
+.hero__kicker{font-family:var(--font-mono);font-size:.85rem;letter-spacing:.18em;color:var(--yellow);text-transform:uppercase;margin-bottom:12px}
+.hero__title{font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;line-height:1;
+  font-size:clamp(2.4rem,6.4vw,5.4rem)}
 .hero__line{display:block;overflow:hidden}
 .hero__line em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero__line--grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero__sub{max-width:540px;margin-top:28px;color:var(--muted);font-size:clamp(1rem,1.7vw,1.18rem)}
-.hero__actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px}
+.hero__sub{max-width:540px;margin-top:20px;color:var(--muted);font-size:clamp(1rem,1.7vw,1.15rem)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:26px}
 .hero__scroll{position:absolute;left:clamp(18px,4vw,48px);bottom:34px;display:flex;align-items:center;gap:12px;
   font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
 .hero__scroll-track{width:22px;height:36px;border:1.5px solid var(--border-strong);border-radius:12px;display:flex;justify-content:center;padding-top:6px}
 .hero__scroll-thumb{width:3px;height:8px;border-radius:2px;background:var(--yellow);animation:scrollThumb 1.8s var(--ease) infinite}
 @keyframes scrollThumb{0%{opacity:0;transform:translateY(-2px)}40%{opacity:1}80%{opacity:0;transform:translateY(10px)}100%{opacity:0}}
+/* On short viewports the centered hero fills the screen, leaving no room for a
+   bottom scroll cue — hide it so it can't collide with the CTA buttons. */
+@media (max-height:800px){.hero__scroll{display:none}}
 
 /* Rotating "available for freelance" badge */
 .hero__badge-float{position:absolute;right:clamp(18px,4vw,48px);bottom:44px;z-index:3}
